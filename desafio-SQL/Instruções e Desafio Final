@@ -1,0 +1,28 @@
+﻿Observações:
+1. Em plans.id_status, o default deve ser o ID que representa seu status inicial, caso houve rum registro em plan_status com id = 1 e nome = 'iniciado', logo, seu plans.id_status default será 1.
+
+2. Fique à vontade para decidir o tamanho dos campos varchar sem tamanho especificado.
+
+3. Sobre o Módulo 5 do curso, vamos trabalhar com monitoramento/desempenho.
+
+1) Popule as tabelas plan_types e plan_status com no mínimo 3 registros
+
+2) Popule a tabelas users com no mínimo 5 registros.
+
+3) Popule a tabela de plans com no mínimo 3 registros. Para cada registro de plan, insira ao menos 3 usuários interessados em plan_interested_users.
+
+4) Sempre que um usuário sofrer um update, o last_changed_date do mesmo deverá ser atualizado com o horário atual.
+
+5) Sempre que um usário for removido ou ativado (users.removed) um registro deve ser salvo em users_history. Caso o usuário tenha sido removido, em users_history teremos seu ID e o status será 0. (can_create_plan será nulo)
+
+6) Sempre que um usário tiver mudanças em sau permissão de criar planos (users.can_create_plan) um registro deve ser salvo em users_history. Caso o usuário tenha sua permissão removida (can_create_plan), em users_history teremos seu ID e e o can_crate_plan será 0. (status será nulo)
+
+7) Sempre que um plano sofrer uma mudança de status, um registro em plans_history será gerado, contendo o id do plano e o novo id_status do registro.
+
+8) Implemente uma procedure que faça com que usuários com planos com mais de 1 mês de atraso OU usuários com 2 ou mais planos em atraso NÃO possam criar novos planos (can_create_plan).
+
+9) Crie uma view que traga o id do responsável, nome do responsável, qtde de planos concluidos no prazo, qtde de planos concluídos fora do prazo, qtde de planos em andamento e qtde de projetos cancelados/suspensos.
+
+10) Vamos simular o funcionamento de filtros. Implemente um relatório que aceite um ou mais ID's de projeto, uma data inicial e uma data final. O relatório deve trazer o id do projeto, nome do projeto, nome do responsável, inicial, data final e o nome dos usuários interessados concatenados em uma só coluna(separados por vírgula)
+
+11) Implemente uma função que retorna o id dos usuários que possuem mais de 5 projetos concluídos no prazo e estão com o can_create_plan = 0. Em seguida, atualize a tabela usuários, atribuindo 1 ao can_create_plan dos usuários que possuem o ID dentro de tal retorno.
