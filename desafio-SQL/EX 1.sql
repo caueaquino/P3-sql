@@ -1,19 +1,19 @@
 
 
 INSERT INTO [dbo].[plan_types]
-           ([id], [name])
+           ([name])
      VALUES
-           (1, 'Plano padrão'),
-		   (2, 'Plano básico'),
-		   (3, 'Plano avançado')
+           ('Plano padrão'),
+		   ('Plano básico'),
+		   ('Plano avançado')
 
 
 
 INSERT INTO [dbo].[plan_status]
-           ([id], [name])
+           ([name])
      VALUES
-           (1, 'Aberto'),
-		   (2, 'Concluído'),
-		   (3, 'Aguardando início'),
-		   (4, 'Cancelado')
+           ('Aberto'),
+		   ('Concluído'),
+		   ('Aguardando início'),
+		   ('Cancelado')
 
